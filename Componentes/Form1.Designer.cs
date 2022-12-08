@@ -33,11 +33,11 @@ namespace Componentes
             this.cbbFrutasListadas = new System.Windows.Forms.ComboBox();
             this.ltbFrutas = new System.Windows.Forms.ListBox();
             this.gpbFrutas = new System.Windows.Forms.GroupBox();
-            this.lblBanana = new System.Windows.Forms.Label();
-            this.lblMaca = new System.Windows.Forms.Label();
-            this.lblPera = new System.Windows.Forms.Label();
-            this.lblMelancia = new System.Windows.Forms.Label();
             this.lblSair = new System.Windows.Forms.Label();
+            this.lblMaca = new System.Windows.Forms.Label();
+            this.lblBanana = new System.Windows.Forms.Label();
+            this.lblMelancia = new System.Windows.Forms.Label();
+            this.lblPera = new System.Windows.Forms.Label();
             this.txtFrutaSelecionada = new System.Windows.Forms.TextBox();
             this.lblFrutaSelecionada = new System.Windows.Forms.Label();
             this.lblFrutaCombo = new System.Windows.Forms.Label();
@@ -47,7 +47,7 @@ namespace Componentes
             this.btnSelecionar = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnInserir = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSair = new System.Windows.Forms.Button();
             this.gpbFrutas.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,14 +85,14 @@ namespace Componentes
             this.gpbFrutas.TabStop = false;
             this.gpbFrutas.Text = "Frutas";
             // 
-            // lblBanana
+            // lblSair
             // 
-            this.lblBanana.AutoSize = true;
-            this.lblBanana.Location = new System.Drawing.Point(6, 21);
-            this.lblBanana.Name = "lblBanana";
-            this.lblBanana.Size = new System.Drawing.Size(63, 20);
-            this.lblBanana.TabIndex = 0;
-            this.lblBanana.Text = "1-Banana";
+            this.lblSair.AutoSize = true;
+            this.lblSair.Location = new System.Drawing.Point(6, 101);
+            this.lblSair.Name = "lblSair";
+            this.lblSair.Size = new System.Drawing.Size(42, 20);
+            this.lblSair.TabIndex = 0;
+            this.lblSair.Text = "5-Sair";
             // 
             // lblMaca
             // 
@@ -103,14 +103,14 @@ namespace Componentes
             this.lblMaca.TabIndex = 0;
             this.lblMaca.Text = "2-Maçã";
             // 
-            // lblPera
+            // lblBanana
             // 
-            this.lblPera.AutoSize = true;
-            this.lblPera.Location = new System.Drawing.Point(6, 61);
-            this.lblPera.Name = "lblPera";
-            this.lblPera.Size = new System.Drawing.Size(46, 20);
-            this.lblPera.TabIndex = 0;
-            this.lblPera.Text = "3-Pêra";
+            this.lblBanana.AutoSize = true;
+            this.lblBanana.Location = new System.Drawing.Point(6, 21);
+            this.lblBanana.Name = "lblBanana";
+            this.lblBanana.Size = new System.Drawing.Size(63, 20);
+            this.lblBanana.TabIndex = 0;
+            this.lblBanana.Text = "1-Banana";
             // 
             // lblMelancia
             // 
@@ -121,18 +121,20 @@ namespace Componentes
             this.lblMelancia.TabIndex = 0;
             this.lblMelancia.Text = "4-Melância";
             // 
-            // lblSair
+            // lblPera
             // 
-            this.lblSair.AutoSize = true;
-            this.lblSair.Location = new System.Drawing.Point(6, 101);
-            this.lblSair.Name = "lblSair";
-            this.lblSair.Size = new System.Drawing.Size(42, 20);
-            this.lblSair.TabIndex = 0;
-            this.lblSair.Text = "5-Sair";
+            this.lblPera.AutoSize = true;
+            this.lblPera.Location = new System.Drawing.Point(6, 61);
+            this.lblPera.Name = "lblPera";
+            this.lblPera.Size = new System.Drawing.Size(46, 20);
+            this.lblPera.TabIndex = 0;
+            this.lblPera.Text = "3-Pêra";
             // 
             // txtFrutaSelecionada
             // 
+            this.txtFrutaSelecionada.Enabled = false;
             this.txtFrutaSelecionada.Location = new System.Drawing.Point(21, 343);
+            this.txtFrutaSelecionada.MaxLength = 50;
             this.txtFrutaSelecionada.Name = "txtFrutaSelecionada";
             this.txtFrutaSelecionada.Size = new System.Drawing.Size(200, 20);
             this.txtFrutaSelecionada.TabIndex = 1;
@@ -168,9 +170,11 @@ namespace Componentes
             // txtSelecionar
             // 
             this.txtSelecionar.Location = new System.Drawing.Point(128, 45);
+            this.txtSelecionar.MaxLength = 50;
             this.txtSelecionar.Name = "txtSelecionar";
             this.txtSelecionar.Size = new System.Drawing.Size(303, 20);
             this.txtSelecionar.TabIndex = 0;
+            this.txtSelecionar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSelecionar_KeyDown);
             // 
             // lblFrutasListadas
             // 
@@ -189,6 +193,7 @@ namespace Componentes
             this.btnSelecionar.TabIndex = 2;
             this.btnSelecionar.Text = "&Selecionar";
             this.btnSelecionar.UseVisualStyleBackColor = true;
+            this.btnSelecionar.Click += new System.EventHandler(this.btnSelecionar_Click);
             // 
             // btnLimpar
             // 
@@ -198,6 +203,7 @@ namespace Componentes
             this.btnLimpar.TabIndex = 4;
             this.btnLimpar.Text = "&Limpar";
             this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // btnInserir
             // 
@@ -207,22 +213,24 @@ namespace Componentes
             this.btnInserir.TabIndex = 3;
             this.btnInserir.Text = "&Inserir";
             this.btnInserir.UseVisualStyleBackColor = true;
+            this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
             // 
-            // button1
+            // btnSair
             // 
-            this.button1.Location = new System.Drawing.Point(451, 384);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(89, 43);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "&Voltar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSair.Location = new System.Drawing.Point(451, 384);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(89, 43);
+            this.btnSair.TabIndex = 5;
+            this.btnSair.Text = "Sai&r";
+            this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // frmFrutas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(593, 439);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnInserir);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnSelecionar);
@@ -267,7 +275,7 @@ namespace Componentes
         private System.Windows.Forms.Button btnSelecionar;
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnInserir;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSair;
     }
 }
 
